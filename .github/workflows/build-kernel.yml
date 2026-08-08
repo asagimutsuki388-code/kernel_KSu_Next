@@ -171,9 +171,8 @@ jobs:
         if [[ "$(find ./clang -mindepth 1 -maxdepth 1 -type d | wc -l)" == "1" ]]; then
             mv -f "$(find ./clang -mindepth 1 -maxdepth 1 -type d)"/* ./clang
         fi
-   
-     - name: Download GCC
-     if: env.USE_GCC == 'true' && env.USE_CLANG != 'true'
+  
+      if: env.USE_GCC == 'true' && env.USE_CLANG != 'true'
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace
         if [ ${{ env.USE_GCC_64 }} = true ]; then
